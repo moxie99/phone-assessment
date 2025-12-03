@@ -12,7 +12,7 @@ export default function CronInitializer() {
         console.log("Cron initialization:", data.message || data.error)
       })
       .catch((err) => {
-        console.error("Failed to initialize cron:", err)
+        console.error("Failed to initialize cron-:", err)
       })
   }, [])
   
