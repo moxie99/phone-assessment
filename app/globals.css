@@ -176,9 +176,12 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
+  html, body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
   
   /* Averta font family - falls back to system fonts if not available */

@@ -244,16 +244,16 @@ export function PhoneReservationForm() {
 
   if (isSuccess) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] p-4 relative overflow-hidden">
+      <div className="h-screen flex items-center justify-center bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] p-4 relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-50"></div>
         <Card className="glass-card w-full max-w-md animate-in fade-in-0 zoom-in-95 duration-300 border-0 shadow-2xl relative z-10">
-          <CardContent className="flex flex-col items-center justify-center py-16 px-8">
-            <div className="relative mb-6">
+          <CardContent className="flex flex-col items-center justify-center py-8 sm:py-12 px-6 sm:px-8">
+            <div className="relative mb-4 sm:mb-6">
               <div className="absolute inset-0 bg-[#479FC8]/20 rounded-full blur-2xl"></div>
-              <CheckCircle2 className="h-20 w-20 text-[#479FC8] relative z-10 animate-in zoom-in-50 duration-500" />
+              <CheckCircle2 className="h-16 w-16 sm:h-20 sm:w-20 text-[#479FC8] relative z-10 animate-in zoom-in-50 duration-500" />
             </div>
-            <h2 className="text-3xl font-bold text-[#00425F] mb-3 tracking-tight">Reservation Verified!</h2>
-            <p className="text-[#00425F]/70 text-center mb-8 text-lg leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#00425F] mb-2 sm:mb-3 tracking-tight">Reservation Verified!</h2>
+            <p className="text-[#00425F]/70 text-center mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
               Your phone number reservation has been verified and confirmed successfully.
             </p>
             <Button
@@ -266,7 +266,7 @@ export function PhoneReservationForm() {
                 setShowVerification(false)
                 setVerificationError("")
               }}
-              className="btn-elegant bg-gradient-to-r from-[#479FC8] to-[#00425F] hover:from-[#3a8fb5] hover:to-[#003a4f] text-white font-bold px-10 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="btn-elegant bg-gradient-to-r from-[#479FC8] to-[#00425F] hover:from-[#3a8fb5] hover:to-[#003a4f] text-white font-bold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               Go Home
             </Button>
@@ -278,9 +278,9 @@ export function PhoneReservationForm() {
 
   if (showVerification) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="h-screen bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-50"></div>
-        <div className="max-w-md mx-auto relative z-10">
+        <div className="max-w-md w-full relative z-10">
           <Card className="glass-card animate-in fade-in-0 zoom-in-95 duration-300 border-0 shadow-2xl">
             <CardHeader className="pb-6">
               <div className="flex items-center justify-center mb-6">
@@ -374,54 +374,51 @@ export function PhoneReservationForm() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="h-screen relative overflow-hidden bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] flex flex-col">
       {/* Animated background elements */}
       <div className="absolute inset-0 gradient-mesh opacity-50"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#479FC8] rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-animation"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00425F] rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-animation" style={{ animationDelay: '2s' }}></div>
       
-      <div className="max-w-3xl mx-auto relative z-10">
-        <div className="text-center mb-10 animate-in fade-in-0 slide-in-from-top-4 duration-500">
-          <div className="inline-block mb-4">
-            <div className="w-16 h-1 bg-white/30 mx-auto mb-4"></div>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
+      <div className="flex-1 flex flex-col justify-center max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 relative z-10 overflow-y-auto">
+        <div className="text-center mb-4 sm:mb-6 animate-in fade-in-0 slide-in-from-top-4 duration-500 flex-shrink-0">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1 sm:mb-2 tracking-tight">
             Reserve Your
-            <span className="block mt-2 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <span className="block mt-1 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Phone Number
             </span>
           </h1>
-          <p className="text-white/80 text-xl font-light tracking-wide">Quickteller Business Campaign</p>
+          <p className="text-white/80 text-sm sm:text-base font-light tracking-wide">Quickteller Business Campaign</p>
         </div>
 
-        <Card className="glass-card animate-in fade-in-0 slide-in-from-bottom-4 duration-700 border-0 shadow-2xl">
-          <CardHeader className="pb-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-1 h-8 bg-gradient-to-b from-[#479FC8] to-[#00425F] rounded-full"></div>
-              <CardTitle className="text-3xl font-bold text-[#00425F] tracking-tight">
+        <Card className="glass-card animate-in fade-in-0 slide-in-from-bottom-4 duration-700 border-0 shadow-2xl flex-shrink-0">
+          <CardHeader className="pb-3 sm:pb-4 pt-4 sm:pt-6 px-4 sm:px-6">
+            <div className="flex items-center gap-2 sm:gap-3 mb-1">
+              <div className="w-1 h-6 sm:h-8 bg-gradient-to-b from-[#479FC8] to-[#00425F] rounded-full"></div>
+              <CardTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00425F] tracking-tight">
                 Reservation Form
               </CardTitle>
             </div>
-            <CardDescription className="text-base text-[#00425F]/70 mt-2">
+            <CardDescription className="text-xs sm:text-sm text-[#00425F]/70 mt-1">
               Please fill in all the required information to reserve your phone number.
             </CardDescription>
           </CardHeader>
-          <CardContent className="pt-2">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3 animate-in fade-in-0 slide-in-from-left-4 duration-500 delay-100">
-                  <Label htmlFor="firstName" className="text-[#00425F] font-semibold text-sm tracking-wide uppercase">
+          <CardContent className="pt-2 px-4 sm:px-6 pb-4 sm:pb-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1.5 sm:space-y-2 animate-in fade-in-0 slide-in-from-left-4 duration-500 delay-100">
+                  <Label htmlFor="firstName" className="text-[#00425F] font-semibold text-xs sm:text-sm tracking-wide uppercase">
                     First Name <span className="text-red-500 ml-1">*</span>
                   </Label>
                   <Input
                     id="firstName"
                     placeholder="Enter your first name"
                     {...register("firstName")}
-                    className="input-modern h-12 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm"
+                    className="input-modern h-10 sm:h-11 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm text-sm"
                   />
                    {errors.firstName && (
-                     <p className="text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-2 mt-1">
-                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                     <p className="text-xs sm:text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-1.5 mt-0.5">
+                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                        </svg>
                        {errors.firstName.message}
@@ -429,19 +426,19 @@ export function PhoneReservationForm() {
                    )}
                 </div>
 
-                <div className="space-y-3 animate-in fade-in-0 slide-in-from-right-4 duration-500 delay-150">
-                  <Label htmlFor="lastName" className="text-[#00425F] font-semibold text-sm tracking-wide uppercase">
+                <div className="space-y-1.5 sm:space-y-2 animate-in fade-in-0 slide-in-from-right-4 duration-500 delay-150">
+                  <Label htmlFor="lastName" className="text-[#00425F] font-semibold text-xs sm:text-sm tracking-wide uppercase">
                     Last Name <span className="text-red-500 ml-1">*</span>
                   </Label>
                   <Input
                     id="lastName"
                     placeholder="Enter your last name"
                     {...register("lastName")}
-                    className="input-modern h-12 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm"
+                    className="input-modern h-10 sm:h-11 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm text-sm"
                   />
                    {errors.lastName && (
-                     <p className="text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-2 mt-1">
-                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                     <p className="text-xs sm:text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-1.5 mt-0.5">
+                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                        </svg>
                        {errors.lastName.message}
@@ -450,8 +447,8 @@ export function PhoneReservationForm() {
                 </div>
               </div>
 
-              <div className="space-y-3 animate-in fade-in-0 slide-in-from-left-4 duration-500 delay-200">
-                <Label htmlFor="email" className="text-[#00425F] font-semibold text-sm tracking-wide uppercase">
+              <div className="space-y-1.5 sm:space-y-2 animate-in fade-in-0 slide-in-from-left-4 duration-500 delay-200">
+                <Label htmlFor="email" className="text-[#00425F] font-semibold text-xs sm:text-sm tracking-wide uppercase">
                   Email <span className="text-xs font-normal normal-case text-[#00425F]/60">(Gmail only)</span> <span className="text-red-500 ml-1">*</span>
                 </Label>
                 <Input
@@ -459,11 +456,11 @@ export function PhoneReservationForm() {
                   type="email"
                   placeholder="your.email@gmail.com"
                   {...register("email")}
-                  className="input-modern h-12 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm"
+                  className="input-modern h-10 sm:h-11 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm text-sm"
                 />
                  {errors.email && (
-                   <p className="text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-2 mt-1">
-                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                   <p className="text-xs sm:text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-1.5 mt-0.5">
+                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                      </svg>
                      {errors.email.message}
@@ -471,68 +468,70 @@ export function PhoneReservationForm() {
                  )}
               </div>
 
-              <div className="space-y-3 animate-in fade-in-0 slide-in-from-right-4 duration-500 delay-250">
-                <Label htmlFor="phoneNumber" className="text-[#00425F] font-semibold text-sm tracking-wide uppercase">
-                  Phone Number <span className="text-red-500 ml-1">*</span>
-                </Label>
-                <Input
-                  id="phoneNumber"
-                  type="tel"
-                  placeholder="+1 (555) 123-4567"
-                  {...register("phoneNumber")}
-                  className="input-modern h-12 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm"
-                />
-                 {errors.phoneNumber && (
-                   <p className="text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-2 mt-1">
-                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                     </svg>
-                     {errors.phoneNumber.message}
-                   </p>
-                 )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                <div className="space-y-1.5 sm:space-y-2 animate-in fade-in-0 slide-in-from-right-4 duration-500 delay-250">
+                  <Label htmlFor="phoneNumber" className="text-[#00425F] font-semibold text-xs sm:text-sm tracking-wide uppercase">
+                    Phone Number <span className="text-red-500 ml-1">*</span>
+                  </Label>
+                  <Input
+                    id="phoneNumber"
+                    type="tel"
+                    placeholder="+1 (555) 123-4567"
+                    {...register("phoneNumber")}
+                    className="input-modern h-10 sm:h-11 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm text-sm"
+                  />
+                   {errors.phoneNumber && (
+                     <p className="text-xs sm:text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-1.5 mt-0.5">
+                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                       </svg>
+                       {errors.phoneNumber.message}
+                     </p>
+                   )}
+                </div>
+
+                <div className="space-y-1.5 sm:space-y-2 animate-in fade-in-0 slide-in-from-left-4 duration-500 delay-300">
+                  <Label htmlFor="country" className="text-[#00425F] font-semibold text-xs sm:text-sm tracking-wide uppercase">
+                    Country <span className="text-red-500 ml-1">*</span>
+                  </Label>
+                  <Controller
+                    name="country"
+                    control={control}
+                    rules={{ required: "Please select a country" }}
+                    render={({ field }) => (
+                      <Select
+                        value={field.value}
+                        onValueChange={(value) => {
+                          field.onChange(value)
+                          setValue("country", value, { shouldValidate: true })
+                        }}
+                      >
+                        <SelectTrigger className="input-modern h-10 sm:h-11 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm text-sm">
+                          <SelectValue placeholder="Select your country" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {countries.map((country) => (
+                            <SelectItem key={country} value={country}>
+                              {country}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                   {errors.country && (
+                     <p className="text-xs sm:text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-1.5 mt-0.5">
+                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                       </svg>
+                       {errors.country.message}
+                     </p>
+                   )}
+                </div>
               </div>
 
-              <div className="space-y-3 animate-in fade-in-0 slide-in-from-left-4 duration-500 delay-300">
-                <Label htmlFor="country" className="text-[#00425F] font-semibold text-sm tracking-wide uppercase">
-                  Country <span className="text-red-500 ml-1">*</span>
-                </Label>
-                <Controller
-                  name="country"
-                  control={control}
-                  rules={{ required: "Please select a country" }}
-                  render={({ field }) => (
-                    <Select
-                      value={field.value}
-                      onValueChange={(value) => {
-                        field.onChange(value)
-                        setValue("country", value, { shouldValidate: true })
-                      }}
-                    >
-                      <SelectTrigger className="input-modern h-12 border-2 border-gray-200 focus:border-[#479FC8] focus:ring-0 rounded-lg bg-white/50 backdrop-blur-sm">
-                        <SelectValue placeholder="Select your country" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {countries.map((country) => (
-                          <SelectItem key={country} value={country}>
-                            {country}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  )}
-                />
-                 {errors.country && (
-                   <p className="text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-2 mt-1">
-                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                       <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                     </svg>
-                     {errors.country.message}
-                   </p>
-                 )}
-              </div>
-
-              <div className="space-y-3 animate-in fade-in-0 slide-in-from-right-4 duration-500 delay-350">
-                <Label htmlFor="photo" className="text-[#00425F] font-semibold text-sm tracking-wide uppercase">
+              <div className="space-y-1.5 sm:space-y-2 animate-in fade-in-0 slide-in-from-right-4 duration-500 delay-350">
+                <Label htmlFor="photo" className="text-[#00425F] font-semibold text-xs sm:text-sm tracking-wide uppercase">
                   Photo Upload <span className="text-xs font-normal normal-case text-[#00425F]/60">(Max 1MB)</span> <span className="text-red-500 ml-1">*</span>
                 </Label>
                 {!photoPreview ? (
@@ -546,22 +545,22 @@ export function PhoneReservationForm() {
                     />
                     <label
                       htmlFor="photo"
-                      className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-[#479FC8]/50 rounded-xl cursor-pointer bg-gradient-to-br from-[#F0F9FC] to-white hover:from-[#E0F3F8] hover:to-[#F0F9FC] transition-all duration-300 group hover:border-[#479FC8] hover:shadow-lg"
+                      className="flex flex-col items-center justify-center w-full h-28 sm:h-32 border-2 border-dashed border-[#479FC8]/50 rounded-lg cursor-pointer bg-gradient-to-br from-[#F0F9FC] to-white hover:from-[#E0F3F8] hover:to-[#F0F9FC] transition-all duration-300 group hover:border-[#479FC8] hover:shadow-lg"
                     >
-                      <div className="bg-[#479FC8]/10 rounded-full p-4 mb-3 group-hover:bg-[#479FC8]/20 group-hover:scale-110 transition-all duration-300">
-                        <Upload className="h-6 w-6 text-[#479FC8] group-hover:text-[#00425F] transition-colors" />
+                      <div className="bg-[#479FC8]/10 rounded-full p-2 sm:p-3 mb-2 group-hover:bg-[#479FC8]/20 group-hover:scale-110 transition-all duration-300">
+                        <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-[#479FC8] group-hover:text-[#00425F] transition-colors" />
                       </div>
-                      <p className="text-sm font-medium text-[#00425F] mb-1">
+                      <p className="text-xs sm:text-sm font-medium text-[#00425F] mb-0.5">
                         Click to upload or drag and drop
                       </p>
-                      <p className="text-xs text-[#00425F]/60">
+                      <p className="text-[10px] sm:text-xs text-[#00425F]/60">
                         PNG, JPG, WEBP up to 1MB
                       </p>
                     </label>
                   </div>
                 ) : (
                   <div className="relative group">
-                    <div className="relative w-full h-56 rounded-xl overflow-hidden border-2 border-[#479FC8] shadow-lg">
+                    <div className="relative w-full h-32 sm:h-40 rounded-lg overflow-hidden border-2 border-[#479FC8] shadow-lg">
                       <img
                         src={photoPreview}
                         alt="Preview"
@@ -571,16 +570,16 @@ export function PhoneReservationForm() {
                       <button
                         type="button"
                         onClick={removePhoto}
-                        className="absolute top-3 right-3 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 transition-all duration-200 shadow-xl hover:scale-110"
+                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1.5 hover:bg-red-600 transition-all duration-200 shadow-xl hover:scale-110"
                       >
-                        <X className="h-4 w-4" />
+                        <X className="h-3 w-3 sm:h-4 sm:w-4" />
                       </button>
                     </div>
                   </div>
                 )}
                  {errors.photo && (
-                   <p className="text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-2 mt-1">
-                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                   <p className="text-xs sm:text-sm text-red-500 font-medium animate-in fade-in-0 flex items-center gap-1.5 mt-0.5">
+                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                      </svg>
                      {errors.photo.message}
@@ -589,32 +588,32 @@ export function PhoneReservationForm() {
               </div>
 
                {verificationError && !showVerification && (
-                 <div className="p-4 bg-gradient-to-r from-red-50 to-red-100/50 border-2 border-red-200 rounded-xl animate-in fade-in-0 shadow-sm">
-                   <div className="flex items-start gap-3">
-                     <svg className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                 <div className="p-2 sm:p-3 bg-gradient-to-r from-red-50 to-red-100/50 border-2 border-red-200 rounded-lg animate-in fade-in-0 shadow-sm">
+                   <div className="flex items-start gap-2">
+                     <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                      </svg>
-                     <p className="text-sm text-red-700 font-medium leading-relaxed">{verificationError}</p>
+                     <p className="text-xs sm:text-sm text-red-700 font-medium leading-relaxed">{verificationError}</p>
                    </div>
                  </div>
                )}
 
-              <div className="pt-4 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 delay-400">
+              <div className="pt-2 sm:pt-3 animate-in fade-in-0 slide-in-from-bottom-4 duration-500 delay-400">
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-elegant w-full bg-gradient-to-r from-[#479FC8] to-[#00425F] hover:from-[#3a8fb5] hover:to-[#003a4f] text-white font-bold py-7 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                  className="btn-elegant w-full bg-gradient-to-r from-[#479FC8] to-[#00425F] hover:from-[#3a8fb5] hover:to-[#003a4f] text-white font-bold py-5 sm:py-6 text-sm sm:text-base rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     {isSubmitting ? (
                       <>
-                        <span className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></span>
+                        <span className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-2 border-white border-t-transparent"></span>
                         <span>Submitting...</span>
                       </>
                     ) : (
                       <>
                         <span>Reserve Phone Number</span>
-                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                       </>
