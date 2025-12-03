@@ -244,7 +244,7 @@ export function PhoneReservationForm() {
 
   if (isSuccess) {
     return (
-      <div className="h-screen flex items-center justify-center bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] p-4 relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] p-4 pt-28 sm:pt-32 md:pt-36 relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-50"></div>
         <Card className="glass-card w-full max-w-md animate-in fade-in-0 zoom-in-95 duration-300 border-0 shadow-2xl relative z-10">
           <CardContent className="flex flex-col items-center justify-center py-8 sm:py-12 px-6 sm:px-8">
@@ -278,7 +278,7 @@ export function PhoneReservationForm() {
 
   if (showVerification) {
     return (
-      <div className="h-screen bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="min-h-screen bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 md:pt-36 relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-50"></div>
         <div className="max-w-md w-full relative z-10">
           <Card className="glass-card animate-in fade-in-0 zoom-in-95 duration-300 border-0 shadow-2xl">
@@ -380,7 +380,7 @@ export function PhoneReservationForm() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#479FC8] rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-animation max-w-full"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00425F] rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-animation max-w-full" style={{ animationDelay: '2s' }}></div>
       
-      <div className="flex-1 flex flex-col justify-center items-center w-full max-w-full mx-auto px-0 sm:px-3 md:px-4 lg:px-6 py-1 sm:py-4 md:py-6 relative z-10 overflow-y-auto overflow-x-hidden">
+      <div className="flex-1 flex flex-col justify-center items-center w-full max-w-full mx-auto px-0 sm:px-3 md:px-4 lg:px-6 py-1 sm:py-4 md:py-6 pt-24 sm:pt-28 md:pt-32 relative z-10 overflow-y-auto overflow-x-hidden">
         <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl flex flex-col items-center">
           <div className="text-center mb-2 sm:mb-4 md:mb-6 pt-1 sm:pt-2 md:pt-4 animate-in fade-in-0 slide-in-from-top-4 duration-500 flex-shrink-0 px-2 w-full">
             <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-0.5 sm:mb-1 md:mb-2 tracking-tight">
@@ -389,7 +389,6 @@ export function PhoneReservationForm() {
                 Phone Number
               </span>
             </h1>
-            <p className="text-white/80 text-[10px] sm:text-sm md:text-base font-light tracking-wide">Quickteller Business Campaign</p>
           </div>
 
           <Card className="glass-card animate-in fade-in-0 slide-in-from-bottom-4 duration-700 border-0 shadow-2xl flex-shrink-0 w-full max-w-full rounded-none sm:rounded-xl overflow-hidden">

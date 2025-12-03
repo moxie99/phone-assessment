@@ -7,27 +7,74 @@ if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
   )
 }
 
+// Create transporter with explicit configuration for better reliability
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587, // Use port 587 (TLS) instead of 465 (SSL) - more reliable
+  secure: false, // true for 465, false for other ports
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_APP_PASSWORD,
   },
+  tls: {
+    // Do not fail on invalid certs
+    rejectUnauthorized: false,
+  },
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 })
 
-// Verify transporter configuration
+// Verify transporter configuration (non-blocking, with better error handling)
 transporter.verify(function (error, success) {
   if (error) {
-    console.error("❌ Email transporter verification failed:", error)
+    console.error("❌ Email transporter verification failed:", error.message)
+    console.error("   This might be due to:")
+    console.error("   1. Network/firewall blocking port 587")
+    console.error("   2. Incorrect GMAIL_USER or GMAIL_APP_PASSWORD")
+    console.error("   3. Gmail account security settings")
+    console.error("   4. Need to enable 'Less secure app access' or use App Password")
+    console.error("   Emails will still attempt to send, but may fail.")
   } else {
     console.log("✓ Email transporter is ready to send emails")
   }
 })
 
+// Get base URL for email images (logo, etc.)
+// Normalizes the URL by removing trailing slashes
+function getBaseUrl(baseUrl?: string): string {
+  let url: string
+  
+  // If baseUrl is provided, use it
+  if (baseUrl) {
+    url = baseUrl
+  }
+  // Check for explicit environment variable
+  else if (process.env.NEXT_PUBLIC_BASE_URL) {
+    url = process.env.NEXT_PUBLIC_BASE_URL
+  }
+  // For Vercel deployments
+  else if (process.env.VERCEL_URL) {
+    url = `https://${process.env.VERCEL_URL}`
+  }
+  // For other platforms (Netlify, etc.)
+  else if (process.env.URL) {
+    url = process.env.URL
+  }
+  // Fallback to localhost for development
+  else {
+    url = "http://localhost:3000"
+  }
+  
+  // Remove trailing slash to avoid double slashes in image paths
+  return url.replace(/\/+$/, "")
+}
+
 export async function sendVerificationEmail(
   email: string,
   firstName: string,
-  verificationCode: string
+  verificationCode: string,
+  baseUrl?: string
 ) {
   const mailOptions = {
     from: process.env.GMAIL_USER,
@@ -49,15 +96,25 @@ export async function sendVerificationEmail(
               padding: 20px;
               background-color: #ffffff;
             }
+            .logo-container {
+              text-align: center;
+              padding: 20px 30px;
+              background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
+              border-radius: 10px 10px 0 0;
+            }
+            .logo-container img {
+              max-width: 200px;
+              height: auto;
+            }
             .header {
               background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
-              padding: 30px;
+              padding: 20px 30px 30px;
               text-align: center;
-              border-radius: 10px 10px 0 0;
             }
             .header h1 {
               color: #ffffff;
               margin: 0;
+              font-size: 24px;
             }
             .content {
               padding: 30px;
@@ -93,6 +150,9 @@ export async function sendVerificationEmail(
         </head>
         <body>
           <div class="container">
+            <div class="logo-container">
+              <img src="${getBaseUrl(baseUrl)}/quickteller.png" alt="Quickteller Business" style="max-width: 200px; height: auto; display: block; margin: 0 auto;" />
+            </div>
             <div class="header">
               <h1>Verify Your Reservation</h1>
             </div>
@@ -147,7 +207,8 @@ export async function sendStatsEmail(
     unverifiedReservations: number
     reservationsLast2Hours: number
     topCountries: Array<{ country: string; count: number }>
-  }
+  },
+  baseUrl?: string
 ) {
   const mailOptions = {
     from: process.env.GMAIL_USER,
@@ -169,15 +230,25 @@ export async function sendStatsEmail(
               padding: 20px;
               background-color: #ffffff;
             }
+            .logo-container {
+              text-align: center;
+              padding: 20px 30px;
+              background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
+              border-radius: 10px 10px 0 0;
+            }
+            .logo-container img {
+              max-width: 200px;
+              height: auto;
+            }
             .header {
               background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
-              padding: 30px;
+              padding: 20px 30px 30px;
               text-align: center;
-              border-radius: 10px 10px 0 0;
             }
             .header h1 {
               color: #ffffff;
               margin: 0;
+              font-size: 24px;
             }
             .content {
               padding: 30px;
@@ -222,6 +293,9 @@ export async function sendStatsEmail(
         </head>
         <body>
           <div class="container">
+            <div class="logo-container">
+              <img src="${getBaseUrl(baseUrl)}/quickteller.png" alt="Quickteller Business" style="max-width: 200px; height: auto; display: block; margin: 0 auto;" />
+            </div>
             <div class="header">
               <h1>Reservation Statistics</h1>
             </div>

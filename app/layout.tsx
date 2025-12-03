@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CronInitializer from "@/components/cron-initializer";
 import { Toaster } from "@/components/ui/sonner";
+import { Header } from "@/components/header";
 
 // Averta font is loaded via CSS @font-face in globals.css
 // Font files should be placed in the fonts/ directory at the project root
@@ -22,6 +23,7 @@ export default function RootLayout({
         className="font-averta antialiased"
       >
         <CronInitializer />
+        <Header />
         <Toaster position="top-right" richColors closeButton />
         {children}
       </body>

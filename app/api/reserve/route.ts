@@ -74,11 +74,17 @@ export async function POST(request: NextRequest) {
 
     await reservation.save()
 
+    // Get base URL from request for email images
+    const protocol = request.headers.get("x-forwarded-proto") || "http"
+    const host = request.headers.get("host") || "localhost:3000"
+    const baseUrl = `${protocol}://${host}`
+
     // Send verification email
     const emailResult = await sendVerificationEmail(
       email,
       firstName,
-      verificationCode
+      verificationCode,
+      baseUrl
     )
 
     if (!emailResult.success) {

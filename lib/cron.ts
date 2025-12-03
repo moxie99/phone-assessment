@@ -55,18 +55,20 @@ async function sendStatsReport() {
       topCountries: countryStats,
     }
 
+    // Get base URL for email images
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 
+                    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 
+                     (process.env.URL || "http://localhost:3000"))
+
     // Send stats email
     const emailResult = await sendStatsEmail(
       process.env.STATS_EMAIL || "iswdesignteam@gmail.com",
-      stats
+      stats,
+      baseUrl
     )
 
-    if (emailResult.success) {
-      console.log("✓ Stats email sent successfully at", new Date().toISOString())
-      console.log("  Sent to:", process.env.STATS_EMAIL || "adeolusegun1000@gmail.com")
-    } else {
-      console.error("❌ Failed to send stats email:", emailResult.error)
-      console.error("  Attempted to send to:", process.env.STATS_EMAIL || "adeolusegun1000@gmail.com")
+    if (!emailResult.success) {
+      console.error("Failed to send stats email:", emailResult.error)
     }
   } catch (error) {
     console.error("Error in stats cron job:", error)
@@ -83,17 +85,10 @@ export function startStatsCronJob() {
 
   // Run every 2 hours
   cron.schedule("0 */2 * * *", () => {
-    console.log("Running stats cron job at", new Date().toISOString())
     sendStatsReport()
   })
 
   ;(global as any).cronJobStarted = true
-  console.log("✓ Stats cron job scheduled to run every 2 hours")
-  console.log("  Next run will be at the next 2-hour interval (e.g., 00:00, 02:00, 04:00, etc.)")
-  
-  // Run immediately on initialization
-  console.log("  Running initial stats report now...")
-  sendStatsReport()
 }
 
 // Note: Cron job is initialized via API route /api/cron/init

@@ -24,12 +24,18 @@ export async function POST(request: NextRequest) {
     const { type, email, firstName } = body
 
     if (type === "verification") {
+      // Get base URL from request for email images
+      const protocol = request.headers.get("x-forwarded-proto") || "http"
+      const host = request.headers.get("host") || "localhost:3000"
+      const baseUrl = `${protocol}://${host}`
+
       // Test verification email
       const testCode = "123456"
       const result = await sendVerificationEmail(
         email || gmailUser,
         firstName || "Test User",
-        testCode
+        testCode,
+        baseUrl
       )
 
       if (result.success) {
@@ -64,9 +70,15 @@ export async function POST(request: NextRequest) {
         ],
       }
 
+      // Get base URL from request for email images
+      const protocol = request.headers.get("x-forwarded-proto") || "http"
+      const host = request.headers.get("host") || "localhost:3000"
+      const baseUrl = `${protocol}://${host}`
+
       const result = await sendStatsEmail(
         email || process.env.STATS_EMAIL || "adeolusegun1000@gmail.com",
-        testStats
+        testStats,
+        baseUrl
       )
 
       if (result.success) {

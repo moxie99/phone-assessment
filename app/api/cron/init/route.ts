@@ -6,10 +6,9 @@ export async function GET() {
     startStatsCronJob()
     return Response.json({ 
       message: "Cron job initialized",
-      note: "Stats email will be sent every 5 minutes. An initial email has been sent now."
+      note: "Stats email will be sent every 2 hours automatically."
     })
   } catch (error: any) {
-    console.error("Failed to initialize cron job:", error)
     return Response.json(
       { error: "Failed to initialize cron job", details: error.message },
       { status: 500 }

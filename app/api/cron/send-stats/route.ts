@@ -70,14 +70,19 @@ export async function GET(request: NextRequest) {
       topCountries: countryStats,
     }
 
+    // Get base URL from request for email images
+    const protocol = request.headers.get("x-forwarded-proto") || "https"
+    const host = request.headers.get("host") || process.env.VERCEL_URL || "localhost:3000"
+    const baseUrl = `${protocol}://${host}`
+
     // Send stats email
     const emailResult = await sendStatsEmail(
       process.env.STATS_EMAIL || "iswdesignteam@gmail.com",
-      stats
+      stats,
+      baseUrl
     )
 
     if (!emailResult.success) {
-      console.error("Failed to send stats email:", emailResult.error)
       return NextResponse.json(
         { error: "Failed to send stats email", details: emailResult.error },
         { status: 500 }
@@ -93,7 +98,6 @@ export async function GET(request: NextRequest) {
       { status: 200 }
     )
   } catch (error: any) {
-    console.error("Error in cron job:", error)
     return NextResponse.json(
       { error: "Failed to process cron job", details: error.message },
       { status: 500 }
