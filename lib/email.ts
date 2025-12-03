@@ -98,13 +98,19 @@ export async function sendVerificationEmail(
             }
             .logo-container {
               text-align: center;
-              padding: 20px 30px;
+              padding: 15px 30px;
               background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
               border-radius: 10px 10px 0 0;
             }
             .logo-container img {
-              max-width: 200px;
+              max-width: 120px;
               height: auto;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              -webkit-user-drag: none;
+              pointer-events: none;
             }
             .header {
               background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
@@ -151,7 +157,7 @@ export async function sendVerificationEmail(
         <body>
           <div class="container">
             <div class="logo-container">
-              <img src="${getBaseUrl(baseUrl)}/quickteller.png" alt="Quickteller Business" style="max-width: 200px; height: auto; display: block; margin: 0 auto;" />
+              <img src="${getBaseUrl(baseUrl)}/quickteller.png" alt="Quickteller Business" draggable="false" style="max-width: 120px; height: auto; display: block; margin: 0 auto; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none; pointer-events: none;" />
             </div>
             <div class="header">
               <h1>Verify Your Reservation</h1>
@@ -232,13 +238,19 @@ export async function sendStatsEmail(
             }
             .logo-container {
               text-align: center;
-              padding: 20px 30px;
+              padding: 15px 30px;
               background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
               border-radius: 10px 10px 0 0;
             }
             .logo-container img {
-              max-width: 200px;
+              max-width: 120px;
               height: auto;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              -webkit-user-drag: none;
+              pointer-events: none;
             }
             .header {
               background: linear-gradient(135deg, #479FC8 0%, #00425F 100%);
@@ -294,7 +306,7 @@ export async function sendStatsEmail(
         <body>
           <div class="container">
             <div class="logo-container">
-              <img src="${getBaseUrl(baseUrl)}/quickteller.png" alt="Quickteller Business" style="max-width: 200px; height: auto; display: block; margin: 0 auto;" />
+              <img src="${getBaseUrl(baseUrl)}/quickteller.png" alt="Quickteller Business" draggable="false" style="max-width: 120px; height: auto; display: block; margin: 0 auto; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none; pointer-events: none;" />
             </div>
             <div class="header">
               <h1>Reservation Statistics</h1>
