@@ -374,14 +374,14 @@ export function PhoneReservationForm() {
   }
 
   return (
-    <div className="h-screen relative overflow-hidden bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] flex flex-col">
+    <div className="min-h-screen relative bg-gradient-to-br from-[#479FC8] via-[#479FC8] to-[#00425F] flex flex-col">
       {/* Animated background elements */}
       <div className="absolute inset-0 gradient-mesh opacity-50"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#479FC8] rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-animation"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00425F] rounded-full mix-blend-multiply filter blur-3xl opacity-20 float-animation" style={{ animationDelay: '2s' }}></div>
       
-      <div className="flex-1 flex flex-col justify-center max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 relative z-10 overflow-y-auto">
-        <div className="text-center mb-4 sm:mb-6 animate-in fade-in-0 slide-in-from-top-4 duration-500 flex-shrink-0">
+      <div className="flex-1 flex flex-col justify-start max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 relative z-10 overflow-y-auto">
+        <div className="text-center mb-3 sm:mb-4 pt-2 sm:pt-4 animate-in fade-in-0 slide-in-from-top-4 duration-500 flex-shrink-0">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-1 sm:mb-2 tracking-tight">
             Reserve Your
             <span className="block mt-1 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
